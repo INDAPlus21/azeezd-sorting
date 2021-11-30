@@ -1,1 +1,1 @@
-# azeezd-sorting
+# Azeez Daoud - Sorting Algorithms
