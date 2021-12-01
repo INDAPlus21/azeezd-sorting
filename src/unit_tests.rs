@@ -1,4 +1,4 @@
-use super::*;
+use super::algorithms;
 
 #[test]
 pub fn insertion_test() {

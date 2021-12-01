@@ -1,11 +1,11 @@
-mod algorithms;
-mod painter;
+mod visuals;
 use rand::thread_rng;
 use rand::seq::SliceRandom;
+mod algorithms;
 
 const WIDTH: usize = 640;
 const HEIGHT: usize = 360;
-const SIZE: usize = WIDTH;
+const SIZE: usize = WIDTH / 2;
 
 fn main(){
     println!("Algorithm? ");
@@ -15,9 +15,9 @@ fn main(){
     let mut array : Vec<usize> = (0..SIZE).collect();
     array.shuffle(&mut thread_rng());
     match buf.as_str().to_lowercase().trim() {
-        "selection" => algorithms::selection::visual_selection(&mut array),
-        "insertion" => algorithms::insertion::visual_insertion(&mut array),
-        "pigeonhole" => algorithms::pigeonhole::visual_pigeonhole(&mut array),
+        "selection" => visuals::algorithm_visualiser::visual_selection(&mut array),
+        "insertion" => visuals::algorithm_visualiser::visual_insertion(&mut array),
+        "pigeonhole" => visuals::algorithm_visualiser::visual_pigeonhole(&mut array),
         _ => ()
     }
 }
