@@ -1,3 +1,4 @@
+#[allow(dead_code)]
 pub fn merge_sort(unsorted: &Vec<usize>) -> Vec<usize> {
     if unsorted.len() == 1 { return unsorted.to_owned(); }
 

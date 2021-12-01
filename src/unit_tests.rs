@@ -1,3 +1,5 @@
+// === TESTS ===
+// Tests are made on the same identical array
 use super::algorithms;
 
 #[test]

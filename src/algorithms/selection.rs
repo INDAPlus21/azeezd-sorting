@@ -1,3 +1,4 @@
+#[allow(dead_code)]
 pub fn selection_sort(unsorted: &mut Vec<usize>) {
     let mut i : usize = 0;
     let length = unsorted.len();

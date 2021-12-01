@@ -1,3 +1,4 @@
+#[allow(dead_code)]
 pub fn pigeonhole_sort(unsorted: &mut Vec<usize>) {
     let low = unsorted.iter().min().unwrap();
 

@@ -1,3 +1,4 @@
+#[allow(dead_code)]
 pub fn insertion_sort(unsorted: &mut Vec<usize>)
 {
     let mut i : usize = 1;
