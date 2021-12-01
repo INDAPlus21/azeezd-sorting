@@ -15,7 +15,3 @@ to visualize the algorithm
 - Pigeonhole Sort
 
 (Merge sort is coming, hopefully)
-
-## Known bugs
-- There is enough spaghetti to fight Italy (Code will be cleaned up!!)
-- Algorithms runs a bit after the program closes
