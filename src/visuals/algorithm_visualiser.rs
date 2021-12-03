@@ -72,7 +72,7 @@ pub fn visual_selection(unsorted: &mut Vec<usize>) {
 /// `unsorted: &Vec<usize>` - The array to sort
 pub fn visual_merge(unsorted: &Vec<usize>) {
     // Initialize visualizer 
-    let mut vis = Visualizer::new(None);
+    let mut vis = Visualizer::new(Some(3));
 
     // Start merge sort visualization
     merge_sort(unsorted, &mut vis, 0, &mut unsorted.clone());
@@ -128,13 +128,12 @@ fn merge(vec1: &mut Vec<usize>, vec2: &mut Vec<usize>, visualizer: &mut Visualiz
         if vec1[0] > vec2[0] {
             merged.push(vec2[0]);
             vec2.remove(0);
-            display_merging(visualizer, low_index, &merged, visualizable_vec)
         }
         else {
             merged.push(vec1[0]);
             vec1.remove(0);
-            display_merging(visualizer, low_index, &merged, visualizable_vec)
         }
+        display_merging(visualizer, low_index, &merged, visualizable_vec);
     }
 
 
@@ -142,14 +141,14 @@ fn merge(vec1: &mut Vec<usize>, vec2: &mut Vec<usize>, visualizer: &mut Visualiz
     while vec1.len() > 0 {
         merged.push(vec1[0]);
         vec1.remove(0);
-        display_merging(visualizer, low_index, &merged, visualizable_vec)
     }
+    display_merging(visualizer, low_index, &merged, visualizable_vec);
 
     while vec2.len() > 0 {
         merged.push(vec2[0]);
         vec2.remove(0);
-        display_merging(visualizer, low_index, &merged, visualizable_vec)
     }
+    display_merging(visualizer, low_index, &merged, visualizable_vec);
 
     return merged;
 }
@@ -169,9 +168,9 @@ fn display_merging(visualizer: &mut Visualizer, low_index: usize, merged: &Vec<u
         // Place subarray in its place in the complete vector
         if let Some(e) = visualizable_vec.get_mut(low_index + idx) {
             *e = *merged.get(idx).unwrap();
-            visualizer.paint(&visualizable_vec, low_index + idx);
         }
     }
+    visualizer.paint(&visualizable_vec, low_index);
 }
 
 /// # `visual_pigeonhole`
@@ -180,8 +179,8 @@ fn display_merging(visualizer: &mut Visualizer, low_index: usize, merged: &Vec<u
 /// `unsorted: &mut Vec<usize>` - The array to sort
 pub fn visual_pigeonhole(unsorted: &mut Vec<usize>) {
 
-    // Initialize visualizer. Update rate set to 1 milliseconds because it's hella fast
-    let mut vis = Visualizer::new(Some(1));
+    // Initialize visualizer. Update rate set to 3 milliseconds because it's hella fast
+    let mut vis = Visualizer::new(Some(3));
 
     // Initialize boundries
     let low = unsorted.iter().min().unwrap();
